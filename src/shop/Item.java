@@ -5,6 +5,16 @@ public class Item {
     private float price;
     private String Category;
 
+    private Supplier supplier;
+
+    public Supplier getSupplier() {
+        return supplier;
+    }
+
+    public void setSupplier(Supplier supplier) {
+        this.supplier = supplier;
+    }
+
     public int getItemID() {
         return ItemID;
     }

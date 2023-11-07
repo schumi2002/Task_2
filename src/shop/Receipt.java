@@ -4,9 +4,18 @@ import java.util.List;
 
 public class Receipt {
     private List<Item> items;
-    private float amount;
     private Customer customer;
     private Cashier cashier;
+
+    private int registerNum;
+
+    public int getRegisterNum() {
+        return registerNum;
+    }
+
+    public void setRegisterNum(int registerNum) {
+        this.registerNum = registerNum;
+    }
 
     public List<Item> getItems() {
         return items;
@@ -16,13 +25,7 @@ public class Receipt {
         this.items = items;
     }
 
-    public float getAmount() {
-        return amount;
-    }
 
-    public void setAmount(float amount) {
-        this.amount = amount;
-    }
 
     public Customer getCustomer() {
         return customer;
@@ -43,5 +46,13 @@ public class Receipt {
     @Override
     public String toString() {
         return "Items: " + items + ", Price: " + amount;
+    }
+
+    public float amount() {
+        float amount = 0;
+        for (Item i : items) {
+            amount += i.getPrice();
+        }
+        return amount;
     }
 }

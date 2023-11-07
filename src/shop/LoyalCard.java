@@ -1,6 +1,7 @@
 package shop;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class LoyalCard {
 
@@ -33,7 +34,24 @@ public class LoyalCard {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        LoyalCard loyalCard = (LoyalCard) o;
+        return points == loyalCard.points && Objects.equals(Name, loyalCard.Name) && Objects.equals(expiration, loyalCard.expiration);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(Name, points, expiration);
+    }
+
+    @Override
     public String toString() {
         return "Name: " + Name + ", Points: " + points + ", Expiration: " + expiration;
+    }
+
+    public int rewardsValue() {
+        return points/100;
     }
 }

@@ -6,8 +6,17 @@ public class Shop {
     private List<Cashier> employees;
     private List<LoyalCustomer> loyalCustomers;
     private List<LoyalCard> loyaltyCards;
-    private List<CashRegister> cashRegisters;
+    private List<Supplier> suppliers;
     private List<Item> items;
+
+
+    public List<Supplier> getSuppliers() {
+        return suppliers;
+    }
+
+    public void setSuppliers(List<Supplier> suppliers) {
+        this.suppliers = suppliers;
+    }
 
     public List<Cashier> getEmployees() {
         return employees;
@@ -33,13 +42,6 @@ public class Shop {
         this.loyaltyCards = loyaltyCards;
     }
 
-    public List<CashRegister> getCashRegisters() {
-        return cashRegisters;
-    }
-
-    public void setCashRegisters(List<CashRegister> cashRegisters) {
-        this.cashRegisters = cashRegisters;
-    }
 
     public List<Item> getItems() {
         return items;
@@ -48,4 +50,9 @@ public class Shop {
     public void setItems(List<Item> items) {
         this.items = items;
     }
+
+    public void resign(Cashier x) {
+        employees.removeIf(i -> i.equals(x));
+    }
+
 }
